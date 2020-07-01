@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
-const { ROUND } = require("./env");
+const path = require("path");
+const { ROUND } = require(path.join(__dirname, "env"));
 
 class Hash {
   static async hashPassword(password) {

@@ -15,5 +15,6 @@ app.use(express.json());
 
 // Route Setup
 app.use(require(path.join(__dirname, "router", "Signup")));
+app.use(require(path.join(__dirname, "router", "Signin")));
 
 app.listen(PORT, () => console.log(`Server connected to PORT ${PORT}`));

@@ -1,6 +1,6 @@
 const path = require("path");
 const { Router } = require("express");
-const { signupValidator } = require(path.join(
+const { signupValidators } = require(path.join(
   __dirname,
   "..",
   "validation",
@@ -14,6 +14,6 @@ const { signupPost } = require(path.join(
 ));
 const router = Router();
 
-router.post("/signup", signupValidator, signupPost);
+router.post("/signup", signupValidators, signupPost);
 
 module.exports = router;
