@@ -1,4 +1,5 @@
-const { Schema, Model } = require("mongoose");
+const { Schema, model } = require("mongoose");
+const validator = require('validator')
 
 const UserSchema = Schema({
   id: {
@@ -39,4 +40,4 @@ const UserSchema = Schema({
   },
 });
 
-module.exports = Model("user", UserSchema);
+module.exports = model("user", UserSchema);

@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
+const path = require("path");
+const { DATABASE_URL } = require(path.join(__dirname, "..", "helpers", "env"));
 
 exports.databaseConnection = async () => {
-  const url =
-    "mongodb+srv://anto:abcd@1234@data.eizjb.mongodb.net/InvoiceApp?retryWrites=true&w=majority";
   const dbOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   };
   try {
-    await mongoose.connect(url, dbOptions);
+    await mongoose.connect(DATABASE_URL, dbOptions);
     console.log("Connected to database . . . .");
   } catch (error) {
     console.log(error.message);

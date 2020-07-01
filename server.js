@@ -3,7 +3,7 @@ const path = require("path");
 const morgan = require("morgan");
 const { databaseConnection } = require("./database/config");
 const app = express();
-const PORT = process.env.PORT || 5000;
+const { PORT } = require(path.join(__dirname, "helpers", "env"));
 
 // Database connection
 databaseConnection();
