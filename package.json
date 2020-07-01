@@ -1,0 +1,30 @@
+{
+  "name": "invoicetracker",
+  "version": "1.0.0",
+  "description": "Invoice tracking application to keep track of invoices raised and their corresponding amounts",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntoRichard/Invoice-server.git"
+  },
+  "author": "Antony Rai Richard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntoRichard/Invoice-server/issues"
+  },
+  "homepage": "https://github.com/AntoRichard/Invoice-server#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.20"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4"
+  }
+}
