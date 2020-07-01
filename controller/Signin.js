@@ -18,25 +18,28 @@ const { errorValidator } = require(path.join(
 ));
 
 exports.signinPost = async (req, res) => {
+  // Checking for user input errors
   const errors = validationResult(req);
   const error = errorValidator(errors);
-  // Checking for input errors
   if (!error.success) {
     return validationErrorResponse(res, error);
   }
   const { email, password } = req.body;
+
   // Fetching user data
   const user = await Database.findByKey(userModel, { email });
   if (!user.success) {
     if (user.error) return internalServerProblem(res);
     return noUserFoundResponse(res);
   }
+
   // Password validation
   const result = await Hash.validatePassword(password, user.data.password);
 
   if (!result) {
     return unAuthenticatedResponse(res);
   }
+
   // Generate token
   const token = Token.genToken(user.data.id);
   return successResponse(res, 200, { token }, "login successful");
