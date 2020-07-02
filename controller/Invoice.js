@@ -15,8 +15,13 @@ const {
 } = require(path.join(__dirname, "..", "helpers", "response"));
 
 exports.invoiceGet = async (req, res) => {
-  const { id } = req.user;
-  const response = await Database.findAllByKey(InvoiceModel, { userid: id });
+  const { id, isAdmin } = req.user;
+  let response;
+  if(isAdmin) {
+    response = await Database.findAll(InvoiceModel, { userid: id });
+  } else {
+    response = await Database.findAllByKey(InvoiceModel, { userid: id });
+  }
   if (!response.success) {
     return internalServerProblem(res, response.error);
   }

@@ -16,8 +16,7 @@ const {
 } = require(path.join(__dirname, "..", "helpers", "response"));
 
 exports.signupPost = async (req, res) => {
-  
-  // Checks for user input validation 
+  // Checks for user input validation
   const errors = validationResult(req);
   const error = errorValidator(errors);
   if (!error.success) {
@@ -32,10 +31,10 @@ exports.signupPost = async (req, res) => {
     email,
     password: hashedPassword,
   };
-  
+
   // Insert user into database
   const response = await Database.insert(userModel, newUser);
-  console.log({response});
+  console.log({ response });
   if (!response.success) {
     return internalServerProblem(res, response.error);
   }

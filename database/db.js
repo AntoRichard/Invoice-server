@@ -54,7 +54,23 @@ class Database {
       return this.failed(error);
     }
   }
-
+  static async findAll(model) {
+    try {
+      const data = await model.find({});
+      if (!data) {
+        return {
+          success: false,
+        };
+      }
+      return {
+        success: true,
+        data,
+      };
+    } catch (error) {
+      console.log(error.message);
+      return this.failed(error);
+    }
+  }
 }
 
 module.exports = Database;
