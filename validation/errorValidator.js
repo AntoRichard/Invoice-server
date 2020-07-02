@@ -4,9 +4,9 @@ exports.errorValidator = (err) => {
     for (let error of err.array()) {
       errors[error.param] = error.msg;
     }
-    return { errors, success: false };
+    return { ...errors, success: false };
   }
   return {
-      success: true
-  }
+    success: true,
+  };
 };

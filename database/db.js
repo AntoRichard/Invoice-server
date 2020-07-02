@@ -36,6 +36,25 @@ class Database {
       return this.failed(error);
     }
   }
+
+  static async findAllByKey(model, key) {
+    try {
+      const data = await model.find(key);
+      if (!data) {
+        return {
+          success: false,
+        };
+      }
+      return {
+        success: true,
+        data,
+      };
+    } catch (error) {
+      console.log(error.message);
+      return this.failed(error);
+    }
+  }
+
 }
 
 module.exports = Database;
