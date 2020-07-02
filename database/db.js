@@ -1,15 +1,17 @@
 class Database {
-  failed(error) {
+  static failed(error) {
     return {
       error: error.message,
       success: false,
     };
   }
-  static async insert(model, data) {
+  static async insert(Model, data) {
     try {
-      await model.create(data);
+      const insertedData = await new Model(data).save();
+      console.log(insertedData);
       return {
         success: true,
+        data: insertedData,
       };
     } catch (error) {
       console.log(error.message);
@@ -20,10 +22,10 @@ class Database {
   static async findByKey(model, key) {
     try {
       const data = await model.findOne(key);
-      if(!data) {
+      if (!data) {
         return {
-          success: false
-        }
+          success: false,
+        };
       }
       return {
         success: true,

@@ -41,6 +41,6 @@ exports.signinPost = async (req, res) => {
   }
 
   // Generate token
-  const token = Token.genToken(user.data.id);
+  const token = Token.genToken(user.data._id.toString());
   return successResponse(res, 200, { token }, "login successful");
 };

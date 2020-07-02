@@ -10,6 +10,7 @@ databaseConnection();
 
 // Dev Setup
 app.use(morgan("dev"));
+
 // Response Parser
 app.use(express.json());
 

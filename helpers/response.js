@@ -1,3 +1,4 @@
+// Response for internal server problem or database connection issue
 exports.internalServerProblem = (res, error) => {
   let response = { success: false, message: "Internal server problem" };
   if (error) {
@@ -9,6 +10,7 @@ exports.internalServerProblem = (res, error) => {
   return res.status(500).json(response);
 };
 
+// Response for success
 exports.successResponse = (res, statusCode, data, message) => {
   return res.status(statusCode).json({
     success: true,
@@ -17,10 +19,15 @@ exports.successResponse = (res, statusCode, data, message) => {
   });
 };
 
+// Response if any validation fails
 exports.validationErrorResponse = (res, error) => {
-  return res.status(422).json(error);
+  return res.status(422).json({
+    success: false,
+    error,
+  });
 };
 
+// Response if user without token try to make request
 exports.unAuthorizedResponse = (res) => {
   return res.status(401).json({
     success: false,
@@ -28,6 +35,7 @@ exports.unAuthorizedResponse = (res) => {
   });
 };
 
+// Response if email or password did not match
 exports.unAuthenticatedResponse = (res) => {
   return res.status(401).json({
     success: false,
@@ -35,6 +43,7 @@ exports.unAuthenticatedResponse = (res) => {
   });
 };
 
+// Response if no user found in the database
 exports.noUserFoundResponse = (res) => {
   return res.status(302).json({
     success: false,
