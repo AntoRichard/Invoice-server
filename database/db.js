@@ -130,6 +130,32 @@ class Database {
       return this.failed(error);
     }
   }
+
+  static async filterDataBy(model, time, key) {
+    try {
+      let data;
+      if (key) {
+        data = await model.find({
+          ...key,
+          date: { $gte: time.start, $lt: time.stop },
+        });
+      } else {
+        data = await model.find({ date: { $gte: time.start, $lte: time.end } });
+      }
+      if (!data) {
+        return {
+          success: false,
+        };
+      }
+      return {
+        success: true,
+        data,
+      };
+    } catch (error) {
+      console.log(error.message);
+      return this.failed(error);
+    }
+  }
 }
 
 module.exports = Database;

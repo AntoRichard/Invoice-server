@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const path = require("path");
 const { Auth } = require(path.join(__dirname, "..", "middleware", "Auth"));
-const { filterInvoiceGet } = require(path.join(
+const { sortInvoiceGet, filterInvoiceGet } = require(path.join(
   __dirname,
   "..",
   "controller",
@@ -9,6 +9,8 @@ const { filterInvoiceGet } = require(path.join(
 ));
 const router = Router();
 
-router.get("/filter", Auth, filterInvoiceGet);
+router.get("/invoice/sort", Auth, sortInvoiceGet);
+
+router.get("/invoice/filter", Auth, filterInvoiceGet);
 
 module.exports = router;
