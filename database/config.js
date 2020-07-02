@@ -6,6 +6,7 @@ exports.databaseConnection = async () => {
   const dbOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false
   };
   try {
     await mongoose.connect(DATABASE_URL, dbOptions);

@@ -1,8 +1,11 @@
 const jwt = require("jsonwebtoken");
-const Database = require("../database/db");
-const UserModel = require("../models/User");
-const { SECRET } = require("../helpers/env");
-const { unAuthorizedResponse } = require("../helpers/response");
+const path = require("path");
+const Database = require(path.join(__dirname, "..", "database", "db"));
+const UserModel = require(path.join(__dirname, "..", "models", "User"));
+const { SECRET } = require(path.join(__dirname, "..", "helpers", "env"));
+const {
+  unAuthorizedResponse,
+} = require(path.join(__dirname, "..", "helpers", "response"));
 
 exports.Auth = async (req, res, next) => {
   try {

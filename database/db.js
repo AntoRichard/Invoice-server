@@ -71,6 +71,42 @@ class Database {
       return this.failed(error);
     }
   }
+
+  static async findOneAndUpdate(model, key, value) {
+    try {
+      const data = await model.findOneAndUpdate(key, value);
+      if (!data) {
+        return {
+          success: false,
+        };
+      }
+      return {
+        success: true,
+        data,
+      };
+    } catch (error) {
+      console.log(error.message);
+      return this.failed(error);
+    }
+  }
+
+  static async findOneAndDelete(model, key) {
+    try {
+      const data = await model.findOneAndDelete(key);
+      if (!data) {
+        return {
+          success: false,
+        };
+      }
+      return {
+        success: true,
+        data,
+      };
+    } catch (error) {
+      console.log(error.message);
+      return this.failed(error);
+    }
+  }
 }
 
 module.exports = Database;

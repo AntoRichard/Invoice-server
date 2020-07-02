@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
-const { SECRET } = require("./env")
+const path = require("path");
+const { SECRET } = require(path.join(__dirname, "env"))
 
 class Token {
   static genToken(id) {

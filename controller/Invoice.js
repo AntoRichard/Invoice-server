@@ -1,7 +1,7 @@
 const { validationResult } = require("express-validator");
-const Database = require("../database/db");
-const InvoiceModel = require("../models/Invoice");
 const path = require("path");
+const Database = require(path.join(__dirname, "..", "database", "db"));
+const InvoiceModel = require(path.join(__dirname, "..", "models", "Invoice"));
 const { errorValidator } = require(path.join(
   "..",
   "validation",
@@ -17,7 +17,7 @@ const {
 exports.invoiceGet = async (req, res) => {
   const { id, isAdmin } = req.user;
   let response;
-  if(isAdmin) {
+  if (isAdmin) {
     response = await Database.findAll(InvoiceModel, { userid: id });
   } else {
     response = await Database.findAllByKey(InvoiceModel, { userid: id });
@@ -45,4 +45,41 @@ exports.invoicePost = async (req, res) => {
     return internalServerProblem(res, response.error);
   }
   return successResponse(res, 200, {}, "Invoice added.");
+};
+
+exports.invoicePatch = async (req, res) => {
+  const id = req.body.id;
+  const name = req.body.name;
+  const amount = req.body.amount;
+  const update = {
+    updatedon: Date.now(),
+  };
+  if (name) {
+    update.name = name;
+  }
+  if (amount) {
+    update.amount = amount;
+  }
+  const response = await Database.findOneAndUpdate(
+    InvoiceModel,
+    { _id: id, userid: req.user.id },
+    update
+  );
+  if (!response.success) {
+    return internalServerProblem(res, response.error);
+  }
+  return successResponse(res, 201, {}, "Invoice updated successfully.");
+};
+
+exports.invoiceDelete = async (req, res) => {
+  const id = req.params.id;
+  const response = await Database.findOneAndDelete(InvoiceModel, {
+    _id: id,
+    userid: req.user.id,
+  });
+  console.log({ response });
+  if (!response.success) {
+    return internalServerProblem(res, response.error);
+  }
+  return successResponse(res, 201, {}, "Invoice deleted successfully.");
 };
