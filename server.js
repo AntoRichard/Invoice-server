@@ -18,5 +18,6 @@ app.use(express.json());
 app.use(require(path.join(__dirname, "router", "Signup")));
 app.use(require(path.join(__dirname, "router", "Signin")));
 app.use(require(path.join(__dirname, "router", "Invoice")));
+app.use(require(path.join(__dirname, "router", "FilterInvoice")));
 
 app.listen(PORT, () => console.log(`Server connected to PORT ${PORT}`));

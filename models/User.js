@@ -26,11 +26,11 @@ const UserSchema = Schema({
   },
   createdon: {
     type: Date,
-    default: Date.now(),
+    default: new Date().toISOString(),
   },
   updatedon: {
     type: Date,
-    default: Date.now(),
+    default: new Date().toISOString(),
   },
   isAdmin: {
     type: Boolean,

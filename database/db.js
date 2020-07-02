@@ -107,6 +107,29 @@ class Database {
       return this.failed(error);
     }
   }
+
+  static async sortDataBy(model, type, key) {
+    try {
+      let data;
+      if (key) {
+        data = await model.find(key).sort(type);
+      } else {
+        data = await model.find({}).sort(type);
+      }
+      if (!data) {
+        return {
+          success: false,
+        };
+      }
+      return {
+        success: true,
+        data,
+      };
+    } catch (error) {
+      console.log(error.message);
+      return this.failed(error);
+    }
+  }
 }
 
 module.exports = Database;

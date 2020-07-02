@@ -18,11 +18,11 @@ const InvoiceSchema = Schema({
   },
   date: {
     type: Date,
-    default: Date.now(),
+    default: new Date().toISOString(),
   },
   updatedon: {
     type: Date,
-    default: Date.now(),
+    default: new Date().toISOString(),
   },
 });
 
