@@ -28,6 +28,18 @@ exports.invoiceGet = async (req, res) => {
   return successResponse(res, 200, response, "invoice found");
 };
 
+exports.invoiceGetOne = async (req, res) => {
+  const { id } = req.user;
+  const _id = req.params.invoiceid;
+  let response;
+  response = await Database.findAllByKey(InvoiceModel, { _id, userid: id });
+
+  if (!response.success) {
+    return internalServerProblem(res, response.error);
+  }
+  return successResponse(res, 200, response, "invoice found");
+};
+
 exports.invoicePost = async (req, res) => {
   const errors = validationResult(req);
   const error = errorValidator(errors);

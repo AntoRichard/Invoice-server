@@ -54,9 +54,10 @@ class Database {
       return this.failed(error);
     }
   }
-  static async findAll(model) {
+  static async findAll(model, select = []) {
     try {
       const data = await model.find({});
+
       if (!data) {
         return {
           success: false,
@@ -135,9 +136,10 @@ class Database {
     try {
       let data;
       if (key) {
+        console.log(key);
         data = await model.find({
           ...key,
-          date: { $gte: time.start, $lt: time.stop },
+          date: { $gte: time.start, $lte: time.end },
         });
       } else {
         data = await model.find({ date: { $gte: time.start, $lte: time.end } });

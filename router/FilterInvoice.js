@@ -9,8 +9,8 @@ const { sortInvoiceGet, filterInvoiceGet } = require(path.join(
 ));
 const router = Router();
 
-router.get("/invoice/sort", Auth, sortInvoiceGet);
+router.get("/invoices/sort", Auth, sortInvoiceGet);
 
-router.get("/invoice/filter", Auth, filterInvoiceGet);
+router.get("/invoices/filter", Auth, filterInvoiceGet);
 
 module.exports = router;

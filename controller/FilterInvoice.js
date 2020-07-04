@@ -35,7 +35,7 @@ exports.filterInvoiceGet = async (req, res) => {
     response = await Database.filterDataBy(
       InvoiceModel,
       { start, end },
-      req.user.id
+      { userid: req.user.id }
     );
   }
 

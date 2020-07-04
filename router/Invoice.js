@@ -9,12 +9,15 @@ const { invoiceValidators } = require(path.join(
 ));
 const {
   invoiceGet,
+  invoiceGetOne,
   invoicePost,
   invoicePatch,
   invoiceDelete,
 } = require(path.join(__dirname, "..", "controller", "Invoice"));
 
 const router = Router();
+
+router.get("/invoice/:invoiceid", Auth, invoiceGetOne);
 
 router.get("/invoice", Auth, invoiceGet);
 
