@@ -31,4 +31,4 @@ app.use(require(path.join(__dirname, "router", "Invoice")));
 app.use(require(path.join(__dirname, "router", "FilterInvoice")));
 app.use(require(path.join(__dirname, "router", "user")));
 
-app.listen(PORT, () => console.log(`Server connected to PORT ${PORT}`));
+app.listen(process.env.PORT || PORT, () => console.log(`Server connected to PORT ${PORT}`));
