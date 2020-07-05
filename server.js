@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const cors = require("cors");
 const app = express();
 const { PORT } = require(path.join(__dirname, "helpers", "env"));
@@ -27,7 +27,7 @@ connect().then(()=> {
 })
 
 // Dev Setup
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 
 // Response Parser
 app.use(express.json());
