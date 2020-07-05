@@ -10,10 +10,10 @@ exports.databaseConnection = async () => {
   };
   try {
     await mongoose.connect(DATABASE_URL, dbOptions);
-    console.log("Connected to database . . . .");
+    console.log("[MONGODB]: CONNECTED TO DATABASE");
   } catch (error) {
     console.log(error.message);
-    console.log("Database cannot be connected.");
+    console.log("[MONGODB]: FAILED TO CONNECT WITH DATABASE");
     return process.exit();
   }
 };
