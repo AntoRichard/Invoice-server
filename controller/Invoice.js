@@ -46,10 +46,11 @@ exports.invoicePost = async (req, res) => {
   if (!error.success) {
     return validationErrorResponse(res, error);
   }
-  const { name, amount } = req.body;
+  const { name, amount, date } = req.body;
   const newInvoice = {
     name,
     amount,
+    date,
     userid: req.user.id,
   };
   const response = await Database.insert(InvoiceModel, newInvoice);

@@ -158,6 +158,39 @@ class Database {
       return this.failed(error);
     }
   }
+
+  static async filterAndSortDataBy(model, type, time, key) {
+    let timeLimit;
+    if (time) {
+      timeLimit = { date: { $gte: time.start, $lte: time.end } };
+    }
+    try {
+      let data;
+      if (key) {
+        console.log(key);
+        data = await model
+          .find({
+            ...key,
+            ...timeLimit,
+          })
+          .sort(type);
+      } else {
+        data = await model.find({ ...timeLimit}).sort(type);
+      }
+      if (!data) {
+        return {
+          success: false,
+        };
+      }
+      return {
+        success: true,
+        data,
+      };
+    } catch (error) {
+      console.log(error.message);
+      return this.failed(error);
+    }
+  }
 }
 
 module.exports = Database;
