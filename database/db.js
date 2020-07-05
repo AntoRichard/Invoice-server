@@ -8,13 +8,11 @@ class Database {
   static async insert(Model, data) {
     try {
       const insertedData = await new Model(data).save();
-      console.log(insertedData);
       return {
         success: true,
         data: insertedData,
       };
     } catch (error) {
-      console.log(error.message);
       return this.failed(error);
     }
   }
@@ -32,7 +30,6 @@ class Database {
         data,
       };
     } catch (error) {
-      console.log(error.message);
       return this.failed(error);
     }
   }
@@ -50,7 +47,6 @@ class Database {
         data,
       };
     } catch (error) {
-      console.log(error.message);
       return this.failed(error);
     }
   }
@@ -68,7 +64,6 @@ class Database {
         data,
       };
     } catch (error) {
-      console.log(error.message);
       return this.failed(error);
     }
   }
@@ -86,7 +81,6 @@ class Database {
         data,
       };
     } catch (error) {
-      console.log(error.message);
       return this.failed(error);
     }
   }
@@ -104,7 +98,6 @@ class Database {
         data,
       };
     } catch (error) {
-      console.log(error.message);
       return this.failed(error);
     }
   }
@@ -127,7 +120,6 @@ class Database {
         data,
       };
     } catch (error) {
-      console.log(error.message);
       return this.failed(error);
     }
   }
@@ -136,7 +128,6 @@ class Database {
     try {
       let data;
       if (key) {
-        console.log(key);
         data = await model.find({
           ...key,
           date: { $gte: time.start, $lte: time.end },
@@ -154,7 +145,6 @@ class Database {
         data,
       };
     } catch (error) {
-      console.log(error.message);
       return this.failed(error);
     }
   }
@@ -167,7 +157,6 @@ class Database {
     try {
       let data;
       if (key) {
-        console.log(key);
         data = await model
           .find({
             ...key,
@@ -187,7 +176,6 @@ class Database {
         data,
       };
     } catch (error) {
-      console.log(error.message);
       return this.failed(error);
     }
   }

@@ -96,7 +96,6 @@ exports.invoiceDelete = async (req, res) => {
     _id: id,
     userid: req.user.id,
   });
-  console.log({ response });
   if (!response.success) {
     return internalServerProblem(res, response.error);
   }

@@ -66,7 +66,6 @@ exports.filterAndSortInvoiceGet = async (req, res) => {
       );
     }
   } else {
-    console.log(req.user.id);
     if (req.user.isAdmin) {
       response = await Database.filterAndSortDataBy(InvoiceModel, type);
     } else {

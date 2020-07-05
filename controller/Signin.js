@@ -42,7 +42,6 @@ exports.signinPost = async (req, res) => {
 
   // Generate token
   const token = Token.genToken(user.data._id.toString());
-  console.log(user);
   const userDetails = {
     admin: user.data.isAdmin,
     username: user.data.username,

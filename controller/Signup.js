@@ -34,7 +34,6 @@ exports.signupPost = async (req, res) => {
 
   // Insert user into database
   const response = await Database.insert(userModel, newUser);
-  console.log({ response });
   if (!response.success) {
     return internalServerProblem(res, response.error);
   }
