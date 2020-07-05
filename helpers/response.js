@@ -50,3 +50,11 @@ exports.noUserFoundResponse = (res) => {
     message: "No user found",
   });
 };
+
+// Response if endpoint is not available
+exports.endPointNotFound = (res) => {
+  return res.status(404).json({
+    success: false,
+    message: "Page not found.",
+  });
+};
