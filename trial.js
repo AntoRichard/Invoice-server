@@ -1,35 +1,8 @@
-const mongoose = require("mongoose");
-const path = require("path");
-const { DATABASE_URL } = require(path.join(__dirname, "..", "helpers", "env"));
-const dbOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
-};
+const moment = require("moment");
 
-const connect = () =>
-  new Promise((resolve, reject) => {
-    if (process.env.NODE_ENV === "Test") {
-      const Mockgoose = require("mockgoose").Mockgoose;
-      const mockgoose = new Mockgoose(mongoose);
-      mockgoose.prepareStorage().then(() => {
-        mongoose.connect(DATABASE_URL, dbOptions).then((res, err) => {
-          console.log("TEST");
-          if (err) return reject(err);
-          resolve();
-        });
-      });
-    } else {
-      mongoose.connect(DATABASE_URL, dbOptions).then((res, err) => {
-        if (err) return reject(err);
-        resolve();
-      });
-    }
-  });
+const currentDate = moment(new Date("06-07-2020"));
 
-const close = () => {
-  return mongoose.connect();
-};
+const nextDate = moment(new Date("07-07-2020"));
 
-module.exports = { connect, close };
+console.log(currentDate, nextDate);
+console.log(nextDate.isAfter(currentDate));

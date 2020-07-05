@@ -61,12 +61,18 @@ exports.invoicePost = async (req, res) => {
 };
 
 exports.invoicePatch = async (req, res) => {
+  const errors = validationResult(req);
+  const error = errorValidator(errors);
+  if (!error.success) {
+    return validationErrorResponse(res, error);
+  }
   const id = req.body.id;
   const name = req.body.name;
   const amount = req.body.amount;
   const update = {
     updatedon: Date.now(),
   };
+  if(!id) return validationErrorResponse(res, { error: "required id to update invoice" });
   if (name) {
     update.name = name;
   }
@@ -94,5 +100,5 @@ exports.invoiceDelete = async (req, res) => {
   if (!response.success) {
     return internalServerProblem(res, response.error);
   }
-  return successResponse(res, 201, {}, "Invoice deleted successfully.");
+  return successResponse(res, 200, {}, "Invoice deleted successfully.");
 };

@@ -1,19 +1,29 @@
 const mongoose = require("mongoose");
 const path = require("path");
 const { DATABASE_URL } = require(path.join(__dirname, "..", "helpers", "env"));
-
-exports.databaseConnection = async () => {
-  const dbOptions = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-  };
-  try {
-    await mongoose.connect(DATABASE_URL, dbOptions);
-    console.log("[MONGODB]: CONNECTED TO DATABASE");
-  } catch (error) {
-    console.log(error.message);
-    console.log("[MONGODB]: FAILED TO CONNECT WITH DATABASE");
-    return process.exit();
-  }
+const dbOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
 };
+
+exports.connect = () =>
+  new Promise((resolve, reject) => {
+    if (process.env.NODE_ENV === true) {
+      const { Mockgoose } = require("mockgoose");
+      const mockgoose = new Mockgoose(mongoose);
+      mockgoose.prepareStorage().then(() => {
+        mongoose.connect("mongodb://localhost/test", dbOptions).then((res, err) => {
+          if (err) return reject(err);
+          resolve();
+        });
+      });
+    } else {
+      mongoose.connect(DATABASE_URL, dbOptions).then((res, err) => {
+        if (err) return reject(err);
+        resolve();
+      });
+    }
+  });
+
+exports.close = () => mongoose.disconnect();

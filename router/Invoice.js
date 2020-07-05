@@ -23,7 +23,7 @@ router.get("/invoice", Auth, invoiceGet);
 
 router.post("/invoice", [Auth, invoiceValidators], invoicePost);
 
-router.patch("/invoice", Auth, invoicePatch);
+router.patch("/invoice", [Auth, invoiceValidators], invoicePatch);
 
 router.delete("/invoice/:id", Auth, invoiceDelete);
 
