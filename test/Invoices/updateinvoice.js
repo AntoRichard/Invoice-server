@@ -19,12 +19,12 @@ describe("PATCH /invoice", () => {
 
   it("Success, update the invoice using valid data.", (done) => {
     const payload = {
-      id: "5f0038b82fcf5105663a5140",
-      name: "test",
-      amount: 10000,
+      id: "5f02af0458680e8a1b3a459e",
+      name: "Logitech B100 USB Mouse",
+      amount: 247,
     };
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .patch("/invoice")
       .send(payload)
@@ -72,7 +72,7 @@ describe("PATCH /invoice", () => {
       amount: "asdada",
     };
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .patch("/invoice")
       .send(payload)
@@ -96,7 +96,7 @@ describe("PATCH /invoice", () => {
       amount: 10000,
     };
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .patch("/invoice")
       .send(payload)
@@ -116,7 +116,7 @@ describe("PATCH /invoice", () => {
   it("Failure, Trying to update invoice using Empty payload.", (done) => {
     const payload = {};
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .patch("/invoice")
       .send(payload)
@@ -141,7 +141,7 @@ describe("PATCH /invoice", () => {
       amount: 10000,
     };
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .patch("/invoice")
       .send(payload)

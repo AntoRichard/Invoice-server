@@ -22,7 +22,7 @@ describe("GET /invoices?asec=1&desc=0&start=0&end=0", () => {
     const desc = 1,
       asec = 0;
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .get(`/invoices?asec=${asec}&desc=${desc}&start=0&end=0`)
       .set("Authorization", `Bearer ${token}`)
@@ -48,7 +48,7 @@ describe("GET /invoices?asec=1&desc=0&start=0&end=0", () => {
     const desc = 1,
       asec = 0;
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .get(`/invoices?asec=${asec}&desc=${desc}&start=0&end=0`)
       .set("Authorization", `Bearer ${token}`)
@@ -72,7 +72,7 @@ describe("GET /invoices?asec=1&desc=0&start=0&end=0", () => {
 
   it("Success, Filter based on date", (done) => {
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     const startDate = "2020-07-01",
       endDate = "2020-07-11";
     request(app)
@@ -126,7 +126,7 @@ describe("GET /invoices?asec=1&desc=0&start=0&end=0", () => {
 
   it("Failure, Get Invoices without params.", (done) => {
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .get("/invoices")
       .set("Authorization", `Bearer ${token}`)

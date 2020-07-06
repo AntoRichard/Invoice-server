@@ -19,8 +19,8 @@ describe("POST /signup", () => {
 
   it("Success, Creating new user", (done) => {
     const payload = {
-      username: "Antony Raj",
-      email: "anto@gmail.com",
+      username: "John Doe",
+      email: "johndoe@gmail.com",
       password: "abcd@1234",
     };
     request(app)
@@ -31,7 +31,7 @@ describe("POST /signup", () => {
         expect(body).to.contain.property("success");
         expect(body).to.contain.property("message");
         expect(body).to.contain.property("token");
-        expect(body.success).to.equal(true)
+        expect(body.success).to.equal(true);
         done();
       })
       .catch((err) => done(err));
@@ -39,8 +39,8 @@ describe("POST /signup", () => {
 
   it("Failure, Creating new user with validation issue", (done) => {
     const payload = {
-      username: "Antony Raj",
-      email: "anto@gmail.com",
+      username: "John Doe",
+      email: "johndoe@gmail.com",
       password: "abcd@",
     };
     request(app)
@@ -50,7 +50,7 @@ describe("POST /signup", () => {
         const body = response.body;
         expect(body).to.contain.property("success");
         expect(body).to.contain.property("error");
-        expect(body.success).to.equal(false)
+        expect(body.success).to.equal(false);
         done();
       })
       .catch((err) => done(err));
@@ -65,7 +65,7 @@ describe("POST /signup", () => {
         const body = response.body;
         expect(body).to.contain.property("success");
         expect(body).to.contain.property("error");
-        expect(body.success).to.equal(false)
+        expect(body.success).to.equal(false);
         done();
       })
       .catch((err) => done(err));

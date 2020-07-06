@@ -19,11 +19,11 @@ describe("POST /invoice", () => {
 
   it("Success, Creating a invoice using valid data.", (done) => {
     const payload = {
-      name: "invoice test",
-      amount: "10000",
+      name: "Graphics Card 2GB",
+      amount: "4999",
     };
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .post("/invoice")
       .send(payload)
@@ -68,7 +68,7 @@ describe("POST /invoice", () => {
       amount: "asdada",
     };
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .post("/invoice")
       .send(payload)
@@ -91,7 +91,7 @@ describe("POST /invoice", () => {
       amount: 10000,
     };
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .post("/invoice")
       .send(payload)
@@ -114,7 +114,7 @@ describe("POST /invoice", () => {
       amount: "",
     };
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .post("/invoice")
       .send(payload)

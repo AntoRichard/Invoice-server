@@ -19,8 +19,7 @@ describe("POST /signin", () => {
 
   it("Success, Signin user with valid and proper Credential", (done) => {
     const payload = {
-      username: "Antony Raj",
-      email: "anto@gmail.com",
+      email: "johndoe@gmail.com",
       password: "abcd@1234",
     };
     request(app)
@@ -80,7 +79,7 @@ describe("POST /signin", () => {
 
   it("Failure, Signin user without password", (done) => {
     const payload = {
-      email: "anto@gmail.com",
+      email: "johnDoe@gmail.com",
     };
     request(app)
       .post("/signin")

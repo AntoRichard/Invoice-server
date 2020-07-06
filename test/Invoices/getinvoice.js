@@ -19,7 +19,7 @@ describe("GET /invoice", () => {
 
   it("Success, Getting all invoices", (done) => {
     const token =
-      "eyJhbGciOiJIUzI1NiJ9.NWVmZGE3Y2QwZWEzMjE5NWQwNGZhMmVm.faYcj_YijKweWJG72tgmNU2Fjdr-mVjRpPUadqHY1Dg";
+      "eyJhbGciOiJIUzI1NiJ9.NWYwMmE5OGM1ODY4MGU4YTFiM2E0NTk3.fD4xK_yrZvuQJjJru4kyfV5Q74uaeKqDSWAw_lZ--rc";
     request(app)
       .get("/invoice")
       .set("Authorization", `Bearer ${token}`)
