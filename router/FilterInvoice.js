@@ -9,10 +9,10 @@ const { sortInvoiceGet, filterInvoiceGet, filterAndSortInvoiceGet } = require(pa
 ));
 const router = Router();
 
-router.get("/invoices/sort", Auth, sortInvoiceGet);
+router.get("/api/v1/invoices/sort", Auth, sortInvoiceGet);
 
-router.get("/invoices/filter", Auth, filterInvoiceGet);
+router.get("/api/v1/invoices/filter", Auth, filterInvoiceGet);
 
-router.get("/invoices", Auth, filterAndSortInvoiceGet);
+router.get("/api/v1/invoices", Auth, filterAndSortInvoiceGet);
 
 module.exports = router;

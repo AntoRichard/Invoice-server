@@ -14,6 +14,6 @@ const { signinValidators } = require(path.join(
 ));
 const router = Router();
 
-router.post("/signin", signinValidators, signinPost);
+router.post("/api/v1/signin", signinValidators, signinPost);
 
 module.exports = router;

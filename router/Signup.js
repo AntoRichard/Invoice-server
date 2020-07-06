@@ -14,6 +14,6 @@ const { signupPost } = require(path.join(
 ));
 const router = Router();
 
-router.post("/signup", signupValidators, signupPost);
+router.post("/api/v1/signup", signupValidators, signupPost);
 
 module.exports = router;

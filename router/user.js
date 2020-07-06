@@ -3,10 +3,10 @@ const { userGet, usersGet, userDelete } = require("../controller/user");
 const { Auth } = require("../middleware/Auth");
 const router = Router();
 
-router.get("/user", Auth, userGet); 
+router.get("/api/v1/user", Auth, userGet); 
 
-router.get("/users", Auth, usersGet);
+router.get("/api/v1/users", Auth, usersGet);
  
-router.delete("/user", Auth, userDelete);
+router.delete("/api/v1/user", Auth, userDelete);
 
 module.exports = router;

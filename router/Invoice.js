@@ -17,14 +17,14 @@ const {
 
 const router = Router();
 
-router.get("/invoice/:invoiceid", Auth, invoiceGetOne);
+router.get("/api/v1/invoice/:invoiceid", Auth, invoiceGetOne);
 
-router.get("/invoice", Auth, invoiceGet);
+router.get("/api/v1/invoice", Auth, invoiceGet);
 
-router.post("/invoice", [Auth, invoiceValidators], invoicePost);
+router.post("/api/v1/invoice", [Auth, invoiceValidators], invoicePost);
 
-router.patch("/invoice", [Auth, invoiceValidators], invoicePatch);
+router.patch("/api/v1/invoice", [Auth, invoiceValidators], invoicePatch);
 
-router.delete("/invoice/:id", Auth, invoiceDelete);
+router.delete("/api/v1/invoice/:id", Auth, invoiceDelete);
 
 module.exports = router;
