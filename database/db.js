@@ -100,7 +100,7 @@ class Database {
     } catch (error) {
       return this.failed(error);
     }
-  }
+  }  
 
   static async sortDataBy(model, type, key) {
     try {

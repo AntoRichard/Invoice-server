@@ -5,6 +5,7 @@ const dbOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
+  createIndexes: true
 };
 
 exports.connect = () =>
